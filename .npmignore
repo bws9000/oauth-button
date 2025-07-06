@@ -1,0 +1,8 @@
+local-deps/
+src/local-deps/
+node_modules/
+tsconfig*
+vite.config.*
+*.bak
+
+
