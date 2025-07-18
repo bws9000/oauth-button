@@ -1,0 +1,17 @@
+{
+  "name": "@charmr/oauth-core",
+  "private": true,
+  "type": "module",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": "./dist/index.js",
+      "types": "./dist/index.d.ts"
+    }
+  },
+  "scripts": {
+    "build": "tsc",
+    "postbuild": "test -f dist/index.js || (echo 'Missing dist/index.js!' && exit 1)"
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "oauth-monorepo",
+  "version": "1.0.0",
+  "private": true,
+  "workspaces": [
+    "packages/*"
+  ],
+  "description": "",
+  "main": "index.js",
+  "sideEffects": false,
+  "scripts": {
+    "clean-dist": "find . -type d -name 'dist' -exec rm -rf {} +",
+    "clean-modules": "find . -type d -name 'node_modules' -exec rm -rf {} +",
+    "reset": "npm run clean-dist && npm run clean-modules && rm -f package-lock.json && npm install",
+    "clean-core": "rm -rf packages/oauth-core/dist",
+    "build-core": "rm -f packages/oauth-core/tsconfig.build.tsbuildinfo && tsc -p packages/oauth-core/tsconfig.build.json",
+    "build-button": "npm run build --workspace=@charmr/oauth-button",
+    "build-all": "npm run clean-core && npm run build-core && npm run build-button",
+    "dev": "npm run dev --workspace=demo-app"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "@tailwindcss/postcss": "^4.1.11",
+    "vite-tsconfig-paths": "^5.1.4"
+  }
+}

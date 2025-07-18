@@ -1,0 +1,14 @@
+{
+  "files": [],
+  "references": [
+    { "path": "packages/oauth-core" },
+    { "path": "packages/oauth-button" }
+  ],
+  "compilerOptions": {
+    "composite": true,
+    "baseUrl": ".",
+    "paths": {
+      "@charmr/oauth-core": ["packages/oauth-core/index"]
+    }
+  }
+}
