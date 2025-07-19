@@ -8,6 +8,16 @@ export class OAuthLoginButtonWeb extends HTMLElement {
     private button: HTMLButtonElement;
     private startLogin: () => void = () => { };
 
+    private getProps() {
+        return {
+            provider: this.getAttribute('provider'),
+            clientId: this.getAttribute('client-id') || '',
+            redirectUri: this.getAttribute('redirect-uri') || '',
+            buttonText: this.getAttribute('button-text'),
+            inlineStyle: this.getAttribute('style'),
+        };
+    }
+
     constructor() {
         super();
         this.button = document.createElement('button');
@@ -34,7 +44,6 @@ export class OAuthLoginButtonWeb extends HTMLElement {
     private updateController() {
         const provider = this.getAttribute('provider');
         if (isProvider(provider)) {
-            //const provider = this.getAttribute('provider') as 'google';
             const clientId = this.getAttribute('client-id') || '';
             const redirectUri = this.getAttribute('redirect-uri') || '';
 
@@ -50,8 +59,8 @@ export class OAuthLoginButtonWeb extends HTMLElement {
                 },
             });
             this.startLogin = startLogin;
-        }else{
-            throw new Error(`${provider} is not a recognized provider`);
+        } else {
+            console.error(`OAuthLoginButtonWeb: "${provider}" is not a valid provider`);
         }
     }
 
