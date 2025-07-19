@@ -14,8 +14,9 @@
     "reset": "npm run clean-dist && npm run clean-modules && rm -f package-lock.json && npm install",
     "clean-core": "rm -rf packages/oauth-core/dist",
     "build-core": "rm -f packages/oauth-core/tsconfig.build.tsbuildinfo && tsc -p packages/oauth-core/tsconfig.build.json",
+    "build-button-web": "npm run build --workspace=@charmr/oauth-button-web",
     "build-button": "npm run build --workspace=@charmr/oauth-button",
-    "build-all": "npm run clean-core && npm run build-core && npm run build-button",
+    "build-all": "npm run clean-core && npm run build-core && npm run build-button && npm run build-button-web",
     "dev": "npm run dev --workspace=demo-app"
   },
   "keywords": [],

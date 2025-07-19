@@ -1,4 +1,5 @@
 export { useController } from './useController';
+export { providers } from './types';
 export type {
   ProviderType,
   OAuthError,
