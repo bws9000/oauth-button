@@ -2,9 +2,11 @@ import { useController, OAuthSuccess, OAuthError } from '@charmr/oauth-core';
 import { isProvider } from '../utils/isProvider';
 
 export class OAuthLoginButtonWeb extends HTMLElement {
+
     static get observedAttributes() {
-        return ['provider', 'client-id', 'redirect-uri', 'button-text'];
+        return ['provider', 'client-id', 'redirect-uri', 'button-text', 'store-provider'];
     }
+
     private button: HTMLButtonElement;
     private startLogin: () => void = () => { };
 
@@ -21,11 +23,11 @@ export class OAuthLoginButtonWeb extends HTMLElement {
     constructor() {
         super();
         this.button = document.createElement('button');
-        this.attachEvents();
         this.appendChild(this.button);
     }
 
     connectedCallback() {
+        this.attachEvents();
         this.updateController();
         this.render();
     }
@@ -37,16 +39,26 @@ export class OAuthLoginButtonWeb extends HTMLElement {
 
     private attachEvents() {
         this.button.addEventListener('click', () => {
+            const provider = this.getAttribute('provider');
+            const shouldStore = this.hasAttribute('store-provider');
+
+            if (provider && shouldStore) {
+                this.rememberProvider(provider);
+            }
+
             this.startLogin();
         });
     }
 
-    private updateController() {
-        const provider = this.getAttribute('provider');
-        if (isProvider(provider)) {
-            const clientId = this.getAttribute('client-id') || '';
-            const redirectUri = this.getAttribute('redirect-uri') || '';
+    private rememberProvider(provider: string) {
+        sessionStorage.setItem('oauth_provider', provider);
+    }
 
+
+    private updateController() {
+        const { provider, clientId, redirectUri } = this.getProps();
+
+        if (isProvider(provider)) {
             const { startLogin } = useController({
                 provider,
                 clientId,
@@ -65,9 +77,9 @@ export class OAuthLoginButtonWeb extends HTMLElement {
     }
 
     private render() {
-        const buttonText = this.getAttribute('button-text') || `Continue with ${this.getAttribute('provider') || 'OAuth'}`;
-        this.button.textContent = buttonText;
+        const { provider, buttonText, inlineStyle } = this.getProps();
+        this.button.textContent = buttonText || `Continue with ${provider || 'OAuth'}`;
         this.button.className = this.className || '';
-        this.button.style.cssText = this.getAttribute('style') || '';
+        this.button.style.cssText = `${inlineStyle || ''}; width: 100%; height: 100%; display: block;`;
     }
 }

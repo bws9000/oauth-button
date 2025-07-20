@@ -15,6 +15,3 @@ export function register(tag = 'oauth-login-button', opts?: { log?: boolean }) {
     console.error(`${LOG_PREFIX} Failed to register <${tag}>:`, error);
   }
 }
-// if (!customElements.get('oauth-login-button')) {
-//   customElements.define('oauth-login-button', OAuthLoginButtonWeb);
-// }
