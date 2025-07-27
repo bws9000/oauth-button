@@ -1,5 +1,5 @@
 # @charmr/oauth-button  
-A lightweight, **soon-to-be framework-agnostic** OAuth login button for React, designed to work seamlessly with the `@charmr/oauth-core` controller.
+A lightweight, OAuth login button for React, designed to work seamlessly with the `@charmr/oauth-core` controller.
 
 [![npm version](https://img.shields.io/npm/v/@charmr/oauth-button.svg)](https://www.npmjs.com/package/@charmr/oauth-button)
  

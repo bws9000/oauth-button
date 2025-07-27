@@ -11,7 +11,7 @@ export type OAuthLoginProps = {
   onSuccess?: (token: OAuthSuccess) => void;
   onError?: (error: OAuthError) => void;
   className?:string;
-  style?: React.CSSProperties;
+  style?: Record<string, string> | string;
 };
 
 export type OAuthSuccess = {

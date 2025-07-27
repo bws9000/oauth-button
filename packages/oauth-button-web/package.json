@@ -1,6 +1,6 @@
 {
-  "name": "@charmr/oauth-button",
-  "version": "0.0.5",
+  "name": "@charmr/oauth-button-web",
+  "version": "0.0.4",
   "main": "dist/index.js",
   "module": "dist/index.mjs",
   "types": "dist/index.d.ts",
@@ -20,31 +20,24 @@
   "scripts": {
     "build": "vite build && tsc -p tsconfig.build.json"
   },
-  "peerDependencies": {
-    "react": "^18.0.0 || ^19.0.0",
-    "react-dom": "^18.0.0 || ^19.0.0"
-  },
-  "devDependencies": {
-    "@vitejs/plugin-react": "^4.6.0",
-    "typescript": "^5.4.0",
-    "vite": "^7.0.2"
-  },
   "dependencies": {
     "@types/node": "^24.0.10"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vite": "^7.0.2",
+    "vite-tsconfig-paths": "^4.3.2"
   },
   "keywords": [
     "oauth",
     "oauth2",
-    "login",
+    "web-components",
     "authentication",
-    "react",
-    "react-component",
     "google-login",
     "oauth-button",
     "charmr",
     "social-login",
-    "oauth-client",
-    "auth"
+    "oauth-client"
   ],
   "repository": {
     "type": "git",
