@@ -11,7 +11,6 @@ type Args = {
 export function createGoogleController({
     clientId,
     redirectUri,
-    onSuccess,
     onError,
 }: Args) {
     const startLogin = () => {
