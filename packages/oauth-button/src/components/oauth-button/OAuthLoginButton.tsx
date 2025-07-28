@@ -1,6 +1,9 @@
-import React from 'react';
-import { useController, OAuthLoginProps } from '@charmr/oauth-core';
+import React, { CSSProperties } from 'react';
+import { useController, OAuthLoginProps as CoreOAuthLoginProps } from '@charmr/oauth-core';
 
+export interface OAuthLoginProps extends Omit<CoreOAuthLoginProps, 'style'> {
+  style?: CSSProperties;
+}
 
 export const OAuthLoginButton: React.FC<OAuthLoginProps> = ({
     provider,
