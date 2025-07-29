@@ -1,7 +1,7 @@
 import React, { CSSProperties } from 'react';
 import { useController, OAuthLoginProps as CoreOAuthLoginProps } from '@charmr/oauth-core';
 
-export interface OAuthLoginProps extends Omit<CoreOAuthLoginProps, 'style'> {
+interface OAuthLoginProps extends Omit<CoreOAuthLoginProps, 'style'> {
   style?: CSSProperties;
 }
 
