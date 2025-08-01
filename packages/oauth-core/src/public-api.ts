@@ -6,4 +6,7 @@ export type {
   OAuthSuccess,
   OAuthLoginProps,
 } from './types';
+export { extractGoogleTokenFromUrl } from './providers/google/extractGoogleTokenFromUrl';
+export { extractFacebookTokenFromUrl } from './providers/facebook/extractFacebookTokenFromUrl';
+export { extractGitHubCodeFromUrl } from './providers/github/extractGitHubCodeFromUrl';
 export const ensureBuild = true;
